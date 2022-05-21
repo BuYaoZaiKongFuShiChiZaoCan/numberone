@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>学习笔记</title>
+		<style>
+			body{
+				font-size: 24px;
+			}
+			div{
+				width: 200px;
+				overflow: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				counter-reset: section;
+			}
+			a{
+				width: 150px;
+				color: #000;
+				text-decoration: none;
+				border-bottom: 1px solid #000;
+			}
+			a::before{/* after会出现在段落后面 */
+				counter-increment: section;
+				content: counter(section)". ";
+			}
+			h2{
+				margin: 0 0 20px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>目录</h2>
+		<div>
+			<a href="./3Dmax/">3Dmax</a>
+			<a href="./apk反编译/">apk反编译</a>
+			<a href="./Bat/">Bat</a>
+			<a href="./web前端/">web前端</a>
+			<a href="./Linux/">Linux</a>
+			<a href="./Micorsoft/">Micorsoft</a>
+			<a href="./Minigame/">Minigame</a>
+			<a href="./Python/">Python</a>
+			<a href="./Vbs/">Vbs</a>
+			<a href="./Web前端/">Web前端</a>
+		</div>
+	</body>
+</html>

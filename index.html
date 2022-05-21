@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keyword" content="Q爱记">
+        <meta name="description" content="在我们印象当中，不管是哪一门学科的老师，只要在谈到学习方法时，都会强调做笔记的重要性。所以我集合各种网站、语言等大多数的学习笔记"><!-- 搜索引擎里网页标题下面的描述，它和title是最重要的SEO信息，要简洁有效，否则搜索引擎会降低网站的权重值 -->
+        <meta name="copyright" content="祁富强">
+        <meta property="og:image" content="./images/logo.png">
+        <meta name="og:title" content="Q爱记">
+        <meta name="baidu-site-verification" content="code-wPzZmXuTRP"><!-- 百度引擎验证 -->
+        <title>Q爱记 - 官网 对各大视频、语言、软件等的笔记合集</title>
+        <link rel="manifest" href="./seochecker-manifest-101.json"><!-- manifest名单、清单，告诉浏览器安装应用的一些信息 -->
+        <link rel="icon" href="./images/favicon.ico"><!-- 网页标题位置的图标 -->
+        <!-- 引入字体图标-小飞机 -->
+        <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <script type="text/javascript" src="./JS/function.js"></script>
+        <script type="text/javascript" src="./JS/jquery.js"></script>
+        <style>
+            .box-shadow{
+                box-shadow: 9px 9px 16px 0px rgb(163 177 198 / 60%),
+                            -9px -9px 16px 0px rgb(255 255 255);
+            }
+            .text-shadow{
+                text-shadow: 1px 1px 0 #fff;
+            }
+            a{
+                font-weight: 600;
+                text-decoration: none;
+                padding: 0.2rem 1rem;
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;/* 小手 */
+                border-radius: 1.5rem;
+                border: 1px solid rgb(220, 233, 254, 0.5);
+                box-shadow: 9px 9px 16px 0px rgb(163 177 198 / 40%),
+                            -9px -9px 16px 0px rgb(255 255 255 / 80%);
+                text-shadow: 1px 1px 0 #FFF;
+                transition: all 0.4s ease-in-out;
+                color: #133c55 !important;
+            }
+            a:hover{
+                box-shadow: 5px 5px 10px 0px rgb(163 177 198 / 60%),
+                            -5px -5px 10px 0px rgb(255 255 255) !important;
+                text-shadow: 1px 1px 10px #fff !important;
+            }
+            html, body{
+                margin: 0;
+                min-width: 420px;
+            }
+            body{
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;/* 主轴方向，垂直方向，起点在上 */
+                flex-wrap: wrap;/* 如果一条线排列不下如何换行，第一行在上 */
+                background-color: #ECF3FF;
+                /* background-image: url(./images/background.webp);
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: cover;
+                height: 100vh */
+                /* filter: blur(10px); 虚化*/
+            }
+
+            @media screen and (max-width: 600px) {
+                #header2 div{
+                    display: none !important;
+                }
+                #时钟边框{
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 601px) {
+                #header3 {
+                    display: none !important;
+                }
+            }
+
+            header{
+                width: 100%; height: 70px;
+                color: #000;
+                font-weight: 900;
+                background-color: #ECF3FF;
+                border-bottom: 2px double #fbf;
+                line-height: 70px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-between;/* 两端对齐 */
+            }
+            header #logo{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;/* 主轴对齐方式 */
+                /* align-items: baseline;交叉轴对齐方式 */
+            }
+            header #logo img{
+                margin: 10px;
+                width: 80px; height: 50px;
+                background-color: #777;
+                border-radius: 5px;
+            }
+            header #logo span{
+                font-size: 35px;
+                font-family: '华文彩云', '华文琥珀', '宋体';
+                overflow: hidden;
+            }
+            header #header2{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                /* justify-content: center; */
+                align-items: center;
+                flex-shrink: default 2;
+            }
+            header #header2 div{
+                margin: 5px;
+                overflow: hidden;
+                padding: 5px;
+            }
+            header #header2 div a{
+                text-decoration: none;
+                color: #000;
+                transition: all 0.3s;
+                margin: 0 20px;
+                padding: 0.6rem 1rem;
+                border-radius: 5rem;
+            }
+            header #header2 img{
+                margin: 20px;
+                border-radius: 30px;
+                background-color: aqua;
+                width: 60px; height: 60px;
+                transition: all 0.5s;
+                box-shadow: 9px 9px 16px 0px rgb(163 177 198 / 60%),
+                            -9px -9px 16px 0px rgb(255 255 255);
+            }
+            header #header2 img:hover{
+                box-shadow: 0 0 10px rgb(163 177 198 / 80%);
+            }
+            
+            #header3{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                z-index: 1;
+                border: 1px solid rgb(220, 233, 254, 0.5);
+            }
+            #header3 div a{
+                text-decoration: none;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+                text-shadow: none;
+            }
+
+            #导航{
+                width: 100%; height: 100px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-around;
+                z-index: 1;
+            }
+
+            #zhongjian{
+                width: 100%; height: 400px;
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 50px;
+            }
+            #zhongjian #中间内容{
+                flex: 8;
+                margin: 0 20px;
+                border: 3px double #000;
+            }
+            #zhongjian #中间内容 iframe{
+                width: 100%;
+                height: 500px;
+                min-width: 230px;
+            }
+            #zhongjian #z-right{
+                flex: 1;
+                text-indent: 4vh;
+                width: 15%; height: 300px;
+                min-width: 200px;
+                border: 3px double #000;
+            }
+            #xdj{
+                text-align: center;
+                color: black;
+                font-size: 20px;
+                height: 75px;
+            }
+            #sj{
+                color:white;
+                width: 140px;
+                margin: 10px auto;
+            }
+            #sj span:nth-child(1){
+                font-size:40px;
+            }
+            #sj span:nth-child(4){
+                font-size:14px;
+            }
+
+            #底部{
+                width: 100%;
+                position: fixed;
+                bottom: 50px;
+            }
+            #底部 svg{
+                line-height: 1.5;
+                color: #212529;
+                text-align: left;
+                font-weight: 300;
+                font-family: Roboto,sans-serif;
+                text-shadow: 1px 1px 0 #FFF;
+                fill: rgb(19, 60, 85);
+                box-sizing: border-box;
+                overflow: hidden;
+                vertical-align: middle;
+                animation: shake-horizontal 5s cubic-bezier(0.455, 0.030, 0.515, 0.955) 0.5s infinite both;
+                width: 120%;
+                height: 50px;
+                background: #ecf3ff;
+                margin-left: -10%;
+            }
+
+            footer{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap-reverse;
+                width: 100%; height: 50px;
+                line-height: 50px;
+                text-align: center;
+                background-color: #133C55;
+                position: fixed;
+                bottom: 0;
+            }
+            footer a{
+                color: #bbb !important;
+                box-shadow: none !important;
+                text-shadow: none !important;
+                font-size: 14px !important;
+                font-weight: normal;
+                margin-left: 10px !important;
+                margin-right: 10px !important;
+                border: none !important;
+            }
+            footer a:hover{
+                color: #bbb;
+                font-size: 14px !important;
+                font-weight: normal;
+                box-shadow: none !important;
+                text-shadow: none !important;
+                margin-left: 10px !important;
+                margin-right: 10px !important;
+                border: none !important;
+            }
+            footer span{
+                color: #bbb !important;
+                font-size: 14px !important;
+                border: none !important;
+            }
+
+            /* 小灰机 */
+            #plane{
+                color: #fff;
+                font-size: 70px;
+                /* 绝对定位 */
+                position: absolute;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 头部：logo -->
+        <header>
+            <div id="logo">
+                <img src="./images/logo.png" alt="">
+                <span class="text-shadow">Q爱记</span>
+            </div>
+            <div id="header2">
+                <div>
+                    <a href="https://www.runoob.com/" title="菜鸟教程" target="_ifarem">菜鸟教程</a>
+                </div>
+                <div>
+                    <a href="https://codingfantasy.com/" title="用玩游戏的方式学flex" target="_ifarem">玩游戏学Flex</a>
+                </div>
+                <img src="./images/头像/toxiang (4).png" alt="" class="box-shadow text-shadow">
+            </div>
+        </header>
+        <div id="header3">
+            <hr width="98%">
+            <div>
+                <a href="https://www.runoob.com/" title="菜鸟教程">菜鸟教程</a>
+            </div>
+            <hr width="98%">
+            <div>
+                <a href="https://codingfantasy.com/" title="用玩游戏的方式学flex">玩游戏学Flex</a>
+            </div>
+            <hr width="98%">
+        </div>
+
+        <!-- 导航 -->
+        <div id="导航">
+            <div><a href="https://meiriyiwen.com/random">每日一文</a></div>
+            <div><a href="https://www.yikm.net/">小霸王</a></div>
+            <div><a href="https://www.bilibili.com/">哔哩哔哩</a></div>
+            <div><a href="https://github.com/">GitHub</a></div>
+            <div><a href="https://www.csdn.net/">CSDN</a></div>
+            <div><a href="https://www.w3school.com.cn/">w3school</a></div>
+            <div><a href="https://www.kugou.com/">酷狗音乐</a></div>
+            <div><a href="https://cowtransfer.com/?utm_campaign=22_tools&utm_medium=pc&utm_source=tools&gio_link_id=xo0Q1v09">牛奶快传</a></div>
+            <div><a href="https://tikolu.net/emojimix/">emoji合成</a></div>
+            <div><a href="https://www.iqiyi.com/">爱奇艺</a></div>
+            <div><a href="https://www.baidu.com">百度</a></div>
+        </div>
+
+        <!-- 轮播图 -->
+        <div id="slideshow" class="box-shadow">
+            <!-- 样式 -->
+            <style type="text/css">
+                /* 不同窗口大小切换不同图片 */
+                @media screen and (max-width: 1000px) {
+                    #slideshow{
+                        width: 500px;
+                    }
+                    #slideshow img{
+                        position: absolute;
+                        left: 500px;
+                    }
+                    slideshow img:nth-of-type(1){
+                        content: url(./images/轮播图/1.png);
+                    }
+                    #slideshow img:nth-of-type(2){
+                        content: url(./images/轮播图/2.png);
+                    }
+                    #slideshow img:nth-of-type(3){
+                        content: url(./images/轮播图/3.png);
+                    }
+                }
+                @media screen and (min-width: 1001px) {
+                    #slideshow{
+                        width: 1000px;
+                    }
+                    #slideshow img{
+                        position: absolute;
+                        left: 1000px;
+                    }
+                    #slideshow img:nth-of-type(1){
+                        content: url(./images/轮播图/1-1.png);
+                    }
+                    #slideshow img:nth-of-type(2){
+                        content: url(./images/轮播图/2-1.png);
+                    }
+                    #slideshow img:nth-of-type(3){
+                        content: url(./images/轮播图/3-1.png);
+                    }
+                }
+                /*-- 轮播图整体样式-- */
+                #slideshow{
+                  height: 200px;
+                  margin: 20px auto;
+                  border-radius: 5px; 
+                  overflow: hidden;
+                  position: relative;
+                }
+                /*-- 图片样式 --*/
+                #slideshow img{
+                  position: absolute;
+                  top: 0;
+                  /*left: 420px;  图片均位于右侧*/
+                  transition: left 0.3s linear;  /*改变left值实现动画*/
+                }
+                #slideshow img.active{
+                  left: 0;
+                }
+                #slideshow img.left{
+                  left: -260px;
+                }
+                /*-- 页码样式 --*/
+                #slideshow div{
+                  position: absolute;
+                  bottom: 0;
+                  width: 100%;
+                  line-height: 0;
+                  text-align: center;
+                  padding: 5px 0;
+                  background: rgba(0,0,0,0.7);
+                }
+                #slideshow span{
+                  display: inline-block;
+                  width: 15px;
+                  height: 10px;
+                  margin: 0 3px;
+                  border-radius: 5px;
+                  background: white;
+                  transition: width 0.3s;
+                }
+                #slideshow span.active{
+                  width: 25px;
+                  background: rgb(216,83,127);
+                }
+                /*-- 图片描述的样式 --*/
+                #slideshow p{
+                  position: absolute;
+                  bottom: 20px;
+                  width: 100%;
+                  line-height: 20px;
+                  font-size: 14px;
+                  text-indent: 5px;
+                  color: white;
+                  background: rgba(0,0,0,0.4);
+                  cursor: default;
+                  opacity: 0;
+                  transition: opacity 0.3s linear;
+                }
+                #slideshow p.active{
+                  opacity: 1;
+                }
+            </style>
+            <!-- 插入轮播的图片们 -->
+            <img class="active" src="./images/轮播图/1.png" alt=""/>
+            <img src="./images/轮播图/2.png" alt=""/>
+            <img src="./images/轮播图/3.png" alt=""/>
+            <!-- 插入轮播的页码们 -->
+            <div>
+                <span class="active" name="0"></span><span name="1"></span><span name="2"></span>
+            </div>
+            <!-- 插入图片的描述们 -->
+            <p class="active">暂时代替轮播图</p>
+            <p>暂时代替轮播图</p>
+            <p>暂时代替轮播图</p>
+            <!-- 让它自动滑动 -->
+            <script type="text/javascript">
+                //---------主角：轮播图函数-------------
+                function slideshow() {
+                  var slideshow=document.getElementById("slideshow"),
+                  imgs=slideshow.getElementsByTagName("img"), //图片们
+                  pages=slideshow.getElementsByTagName("span"), //页码们
+                  descrips=slideshow.getElementsByTagName("p"), //描述们
+                  length=imgs.length, //图片数目
+                  current=1; //current为当前活跃的图片、页码、描述的编号
+                
+                  function changeSlide() { //切换图片的函数
+                    for (var i=0; i<length; i++) {
+                      if(i==current) {
+                        imgs[i].className="active";
+                        pages[i].className="active";
+                        descrips[i].className="active";
+                      } else {
+                        pages[i].className="";
+                        descrips[i].className="";
+                        if(i<current) {
+                          imgs[i].className="left";
+                        } else {
+                          imgs[i].className="";
+                        }
+                      }
+                    }
+                    current++; //自增1
+                    if(current>=length) {
+                      current=0;
+                    }
+                  }
+                
+                  //每2s调用changeSlide函数进行图片轮播
+                  var slideon=setInterval(changeSlide,3000);  
+                
+                  slideshow.onmouseover=function(){
+                    clearInterval(slideon); //当鼠标移入时清除轮播事件
+                  }
+                  slideshow.onmouseout=function(){
+                    slideon=setInterval(changeSlide,2000); //当鼠标移出时重新开始轮播事件
+                  }
+                
+                  for(var i=0; i<length; i++) {  //定义鼠标移入页码事件
+                    pages[i].onmouseover=function(){
+                      current=this.getAttribute("name");  //得到当前鼠标指的页码
+                      changeSlide();
+                    }
+                  }
+                
+                }
+                
+                slideshow();
+            </script>
+        </div>
+
+        <!-- 中间 -->
+        <div id="zhongjian">
+            <div id="时钟边框">
+                <style id="style">
+                    #时钟边框{
+                        height: 300px; width: 200px;
+                        background: linear-gradient(45deg, #cdb, #4ac);
+                        border: 5px double #555;
+                        position: relative;/* 下面所有时钟的元素都会相对于这个定位 */
+                    }
+                    ul{
+                        list-style: none;
+                    }
+                    #circle{
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 100px;
+                        border: 1px solid black;
+                    }
+                    #kedu li{
+                        width: 1px;
+                        height: 6px;
+                        border-radius: 10px;
+                        background-color: black;
+                        transform-origin: center 101px;/*设置li标签的旋转中心和旋转半径。*/
+                        position: absolute;
+                        left: 100px;
+                        top: 0px;
+                    }
+                    #kedu li:nth-of-type(5n+1){
+                        height: 12px;
+                        width: 2px;
+                    }
+ 
+                    /* 秒针的绘制，用transform把div绘制成线条，后面的指针都是在这样。 */
+                    #second{
+                        width: 2px;
+                        height: 80px;
+                        background-color: red;
+                        transform: scaleY(1);
+                        position: absolute;
+                        left: 100px;
+                        top: 22px;
+                        transform-origin: bottom; /*设置它们的旋转中心，transform-origin: bottom；意思是以它们的底部为中心旋转。*/
+                    }
+                    #min{
+                        width: 2px;
+                        height: 65px;
+                        background-color: gray;
+                        transform: scaleY(1);
+                        position: absolute;
+                        left: 100px;
+                        top: 37px;
+                        transform-origin: bottom;
+                    }
+                    #hour{
+                        width: 2px;
+                        height: 50px;
+                        background-color: black;
+                        transform: scaleY(1);
+                        position: absolute;
+                        left: 100px;
+                        top: 52px;
+                        transform-origin: bottom;
+                    }
+                    #p12{
+                        position: absolute;
+                        left: 92px;
+                        top: -5px;
+                    }
+                    #p3{
+                        position: absolute;
+                        left: 176px;
+                        top: 73px;
+                    }
+                    #p6{
+                        position: absolute;
+                        left: 96px;
+                        top: 153px;
+                    }
+                    #p9{
+                        position: absolute;
+                        left: 16px;
+                        top: 73px;
+                    }
+                </style>
+                <div id="circle">
+                    <ul id="kedu"></ul>
+                </div>
+                <div id="second"></div><!--绘制秒针-->
+                <div id="min"></div><!--绘制分针-->
+                <div id="hour"></div><!--绘制时针-->
+                <p id="p12">12</p>
+                <p id="p3">3</p>
+                <p id="p6">6</p>
+                <p id="p9">9</p>
+                <script>
+                    //绘制时钟的刻度 动态创建60个li标签。
+                    function li(){
+                        let ul=document.getElementById("kedu");//先获取到ul，因为要在ul下创建li。
+                        let css;//用来存li的style样式中的CSS设置。
+                        for(let i=0;i<60;i++){
+                            css+=`#kedu li:nth-of-type(${i+1}){transform:rotate(${i*6}deg)}`//循环设置ul下的第i+1个li的旋转角度，要在css中设置了li的旋转中心
+                            ul.innerHTML+=`<li></li>`;//这里要用+=，如果直接用=，只会创建一个li，因为会覆盖前面的li，为了不出现覆盖就用+=。
+                        }
+                        let sty=document.getElementById("style")//这里获取到style标签。
+                        sty.innerHTML+=css //把ul下的li标签的css样式写入到style里。
+                    }
+                    li();//这里结束就把刻度画好了。
+             
+                    function time(){
+                        let s=document.getElementById("second");//获取到时分秒的三个指针，后面用来动态让它们旋转起来。
+                        let m=document.getElementById("min");
+                        let h=document.getElementById("hour");
+             
+                        //获取时间。
+                        let date=new Date();
+                        let snum=date.getSeconds();//获取现在是多少秒。
+                        let mnum=date.getMinutes()+snum/60;//获取现在是多少分，不能忘记加上 秒数/60。
+                        let hnum=date.getHours()+mnum/60; //获取现在是多少时，不能忘记加上 分钟数/60。
+                         
+                        s.style.transform=`rotate(${snum*6}deg)`;//设置的trasnform就可以让它们旋转起来，秒针时一秒旋转6度。
+                        m.style.transform=`rotate(${mnum*6}deg)`//分针也是一分钟旋转6度。
+                        h.style.transform=`rotate(${hnum*30}deg)`//这里时小时，一小时旋转30度，所以*30.
+                    }
+                    setInterval(time,100)//用计时器每100ms运行这个time函数。
+                </script>
+                <div id="sj">
+                    <span>21:52</span>&nbsp;<span>53</span><br>
+                    <span>2022-5-1   星期日</span>
+                </div>
+            </div>
+            <div id="中间内容">
+                <iframe src="./目录.html" frameborder="0" name="_ifarem"></iframe>
+            </div>
+            <div id="z-right">
+                <div id="xdj">
+                    <span>海内存知己、天涯若比邻</span>
+                    <span style="opacity: 1;">|</span>
+                </div>
+            </div>
+            <script type="text/javascript" src="./JS/script.js"></script><!-- 这个JS只能写在这里，否则不生效 -->
+        </div>
+
+        <!-- 底部：链接、版权声明、网站备案号 -->
+        <div id="底部">
+            <svg class="shake-horizontal wave" fill="#133c55" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" viewBox="0 -0.5 1024 182" preserveAspectRatio="none">
+                <path style="opacity:.12" d="M0 182.086h1024V41.593c-28.058-21.504-60.109-37.581-97.075-37.581-112.845 0-198.144 93.798-289.792 93.798S437.658 6.777 351.846 6.777s-142.234 82.125-238.49 82.125c-63.078 0-75.776-31.744-113.357-53.658L0 182.086z"></path>
+                <path style="opacity:.18" d="M1024 181.062v-75.878c-39.731 15.872-80.794 27.341-117.658 25.805-110.387-4.506-191.795-109.773-325.53-116.224-109.158-5.12-344.166 120.115-429.466 166.298H1024v-.001z"></path>
+                <path style="opacity:.24" d="M0 182.086h1024V90.028C966.451 59.103 907.059 16.3 824.115 15.071 690.278 13.023 665.19 102.93 482.099 102.93S202.138-1.62 74.24.019C46.49.326 21.811 4.217 0 9.849v172.237z"></path>
+                <path style="opacity:.3" d="M0 182.086h1024V80.505c-37.171 19.558-80.691 35.328-139.571 36.25-151.142 2.355-141.619-28.57-298.496-29.184s-138.854 47.002-305.459 43.725C132.813 128.428 91.238 44.563 0 28.179v153.907z"></path>
+                <path d="M0 182.086h1024v-77.312c-49.05 20.07-120.525 42.394-193.229 42.086-128.922-.512-159.846-72.294-255.795-72.294-89.088 0-134.656 80.179-245.043 82.022S169.063 99.346 49.971 97.401C32.768 97.094 16.077 99.244 0 103.135v78.951z"></path>
+            </svg>
+        </div>
+        <footer>
+            <a href="历史更新.html" target="_blank">历史更新</a>
+            <a href="http://www.beian.gov.cn/portal/index.do">公安备xxxxxxxx号</a>
+            <a href="https://beian.miit.gov.cn/#/Integrated/index">ICP证xxxxx号</a>
+            <span>@2022 Q爱记</span>
+            <a href="#">许可证</a>
+            <!-- 个人简介/名片 -->
+            <a href="个人简历.html" target="_blank">关于我</a>
+            <a href="联系我.html">联系我</a>
+        </footer>
+
+        <!-- 存放小飞机 -->
+        <div id="plane">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </div>
+    </body>
+    <!-- 小飞机 -->
+    <script>
+        let plane=document.getElementById('plane');
+        let deg=0,ex=0,ey=0,vx=0,vy=0,count=0;
+        window.addEventListener('mousemove',(e)=>{
+            ex=e.x-plane.offsetLeft-plane.clientWidth/2;
+            ey=e.y-plane.offsetTop-plane.clientHeight/2;
+            deg=360*Math.atan(ey/ex)/(2*Math.PI)+45;
+            if(ex<0){
+                deg+=180;
+            }
+            count=0;
+        })
+        function draw(){
+            plane.style.transform='rotate('+deg+'deg)';
+            if(count<100){
+                vx+=ex/100;
+                vy+=ey/100;
+            }
+            plane.style.left=vx+'px';
+            plane.style.top=vy+'px';
+            count++;
+        }
+        setInterval(draw, 1);
+    </script>
+    <!-- 如果用户浏览器支持serviceWorker功能，当网页加载完后加载sw.js文件开启pwa功能 -->
+    <script>
+        if ('serviceWorker' in navigator){
+            window.addEventListener('load', function(){
+                navigator.serviceWorker.register('sw.js')
+            });
+        }
+    </script>
+</html>
