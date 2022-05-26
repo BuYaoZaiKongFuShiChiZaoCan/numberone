@@ -6,11 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="keyword" content="Q爱记">
         <meta name="description" content="在我们印象当中，不管是哪一门学科的老师，只要在谈到学习方法时，都会强调做笔记的重要性。所以我集合各种网站、语言等大多数的学习笔记"><!-- 搜索引擎里网页标题下面的描述，它和title是最重要的SEO信息，要简洁有效，否则搜索引擎会降低网站的权重值 -->
-        <meta name="copyright" content="祁富强">
         <meta property="og:image" content="./images/logo.png">
         <meta name="og:title" content="Q爱记">
-        <meta name="baidu-site-verification" content="code-wPzZmXuTRP"><!-- 百度引擎验证 -->
-        <title>Q爱记 - 官网 对各大视频、语言、软件等的笔记合集</title>
+        <title>Q爱记 - 官网</title>
         <link rel="manifest" href="./seochecker-manifest-101.json"><!-- manifest名单、清单，告诉浏览器安装应用的一些信息 -->
         <link rel="icon" href="./images/favicon.ico"><!-- 网页标题位置的图标 -->
         <!-- 引入字体图标-小飞机 -->
@@ -83,7 +81,7 @@
                 color: #000;
                 font-weight: 900;
                 background-color: #ECF3FF;
-                border-bottom: 2px double #fbf;
+                border-bottom: 1px double #fbf;
                 line-height: 70px;
                 display: flex;
                 flex-direction: row;
@@ -246,6 +244,7 @@
                 background-color: #133C55;
                 position: fixed;
                 bottom: 0;
+				overflow: hidden;
             }
             footer a{
                 color: #bbb !important;
@@ -274,12 +273,39 @@
             }
 
             /* 小灰机 */
+            @keyframes bianse {
+                0%{
+                    color: red;
+                }
+                20%{
+                    color: violet;
+                }
+                40%{
+                    color: #000;
+                }
+                50%{
+                    color: green;
+                }
+                60%{
+                    color: #fff;
+                }
+                70%{
+                    color: blue;
+                }
+                90%{
+                    color: coral;
+                }
+                100%{
+                    color: red;
+                }
+            }
             #plane{
                 color: #fff;
                 font-size: 70px;
                 /* 绝对定位 */
                 position: absolute;
                 z-index: -1;
+                animation: bianse 5s infinite;
             }
         </style>
     </head>
@@ -291,29 +317,126 @@
                 <span class="text-shadow">Q爱记</span>
             </div>
             <div id="header2">
-                <div>
-                    <a href="https://www.runoob.com/" title="菜鸟教程" target="_ifarem">菜鸟教程</a>
+                <style>
+                    form{
+                        width: 100%;
+                        display: flex;
+                        border: 2px solid #ddd;
+						border-radius: 15px;
+                        height: 50px;
+                    }
+                    form img#ss{
+						width: 55px; height: 50px;
+                        transform: scale(0.5);
+                        border: none !important;
+                        box-shadow: none !important;
+                        border-radius: 0 !important;
+						background: none !important;
+						margin: auto 0; padding: 0;
+						text-shadow: none !important;
+                    }
+					form input{
+						width: 100%;
+						border: none;
+						background: none;
+						margin: 0; padding: 0;
+						text-align: left;
+						outline: none;
+					}
+					form button{
+						border: none;
+						background: none;
+						margin: 0; padding: 0;
+						position: fixed;
+					}
+					form button img{
+						width: 50px; height: 50px;
+                        transform: scale(0.5);
+						position: absolute;
+						top: -5px;
+						right: -270px;/* input的size每增加5%,这里减少40px */
+                        border: none !important;
+                        box-shadow: none !important;
+                        border-radius: 0 !important;
+						background: none !important;
+						margin: auto 0 !important; padding: 0 !important;
+						text-shadow: none !important;
+                    }
+                </style>
+                <div id="ssk">
+                    <form action="http://www.bing.com/search?q=" target="_blank"><!-- 打不开百度，所以用必应 iframe为了可以在新标签打开就不设置了 -->
+                        <img src="https://s.cn.bing.net/th?id=ODLS.87518fab-8fc1-4893-a7f1-c7d88283a35a&w=16&h=16&o=6&pid=1.2" alt="" id="ss">
+                        <input type="text" name="q" placeholder="必应搜索" size="25%">
+                        <button value="搜索" title="搜索">
+                            <img src="./images/s1.png" alt="">
+                        </button>
+                    </form>
                 </div>
-                <div>
-                    <a href="https://codingfantasy.com/" title="用玩游戏的方式学flex" target="_ifarem">玩游戏学Flex</a>
-                </div>
-                <img src="./images/头像/toxiang (4).png" alt="" class="box-shadow text-shadow">
+                <img src="./images/toxiang.jpeg" alt="" class="box-shadow text-shadow">
             </div>
         </header>
         <div id="header3">
-            <hr width="98%">
-            <div>
-                <a href="https://www.runoob.com/" title="菜鸟教程">菜鸟教程</a>
+			<style>
+			    #ssk1 form{
+			        width: 100%;
+			        display: flex;
+			        border: 2px solid #ddd;
+					border-radius: 15px;
+			        height: 50px;
+			    }
+			    #ssk1 form img#ss{
+					width: 55px; height: 50px;
+			        transform: scale(0.6);
+			        border: none !important;
+			        box-shadow: none !important;
+			        border-radius: 0 !important;
+					background: none !important;
+					margin: auto 0; padding: 0;
+					text-shadow: none !important;
+			    }
+				#ssk1 form input{
+					width: 300px;
+					border: none;
+					background: none;
+					margin: 0; padding: 0;
+					text-align: left;
+					outline: none;
+				}
+				#ssk1 form button{
+					border: none;
+					background: none;
+					margin: 0; padding: 0;
+					position: fixed;
+				}
+				#ssk1 form button img{
+					width: 50px; height: 50px;
+			        transform: scale(0.5);
+					position: absolute;
+					top: 0px;
+					right: -360px;
+			        border: none !important;
+			        box-shadow: none !important;
+			        border-radius: 0 !important;
+					background: none !important;
+					margin: auto 0 !important; padding: 0 !important;
+					text-shadow: none !important;
+			    }
+			</style>
+            <div id="ssk1">
+                <form action="https://www.baidu.com/s" target="_blank">
+                    <img src="./img/baidu_icon.png" alt="" id="ss">
+                    <input type="text" name="word" placeholder="百度搜索">
+                    <button value="搜索" title="搜索">
+                        <img src="./img/s1.png" alt="">
+                    </button>
+                </form>
             </div>
-            <hr width="98%">
-            <div>
-                <a href="https://codingfantasy.com/" title="用玩游戏的方式学flex">玩游戏学Flex</a>
-            </div>
-            <hr width="98%">
         </div>
 
         <!-- 导航 -->
         <div id="导航">
+            <div><a href="https://codingfantasy.com/">玩游戏学Flex</a></div>
+            <div><a href="https://www.runoob.com/">菜鸟教程</a></div>
             <div><a href="https://meiriyiwen.com/random">每日一文</a></div>
             <div><a href="https://www.yikm.net/">小霸王</a></div>
             <div><a href="https://www.bilibili.com/">哔哩哔哩</a></div>
@@ -631,11 +754,11 @@
                 </div>
             </div>
             <div id="中间内容">
-                <iframe src="./目录.html" frameborder="0" name="_ifarem"></iframe>
+                <iframe src="https://cn.bing.com/" frameborder="0" name="iframe"  frameborder="0" scrolling="auto"></iframe><!-- 打不开百度，所以用必应 -->
             </div>
             <div id="z-right">
                 <div id="xdj">
-                    <span>海内存知己、天涯若比邻</span>
+                    <span>海内存知己，天涯若比邻</span>
                     <span style="opacity: 1;">|</span>
                 </div>
             </div>
